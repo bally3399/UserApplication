@@ -53,24 +53,25 @@ jobs:
                   echo "Docker not found. Installing Docker..."
                   curl -fsSL https://get.docker.com -o get-docker.sh
                   sudo sh get-docker.sh
-              else
+                else
                   echo "Docker is already installed."
-              fi
-              echo "Pulling latest Docker image from Docker Hub..."
-              sudo docker pull baliqis/userapp:latest
+                fi
+                echo "Pulling latest Docker image from Docker Hub..."
+                sudo docker pull baliqis/userapp:latest
             
-              if [ $(docker ps -q -f name=devop-container) ]; then
+                if [ $(docker ps -q -f name=devop-container) ]; then
                   echo "Stopping existing container..."
                   sudo docker stop devop-container
                   sudo docker rm devop-container
             
-              else
+                else
                   echo "No existing container found, creating a new one..."
-              fi
             
-              echo "Running the new container..."
-              sudo docker run -d -p 8084:8084 --name devop-container baliqis/userapp:latest
-              echo "Container deployed successfully!"
-        
-              echo "Listing running containers..."
-              sudo docker ps
+                fi
+            
+                echo "Running the new container..."
+                sudo docker run -d -p 2020:2020 --name devop-container baliqis/userapp:latest
+                echo "Container deployed successfully!"
+            
+                echo "Listing running containers..."
+                sudo docker ps
