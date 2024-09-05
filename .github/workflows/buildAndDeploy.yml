@@ -70,7 +70,7 @@ jobs:
                 fi
             
                 echo "Running the new container..."
-                sudo docker run -d -p 2020:2020 --name devop-container baliqis/userapp:latest
+                sudo docker run -d -p 8084:8084 --name devop-container baliqis/userapp:latest
                 echo "Container deployed successfully!"
             
                 echo "Listing running containers..."
