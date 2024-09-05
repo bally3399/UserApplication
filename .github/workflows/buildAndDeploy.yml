@@ -54,7 +54,7 @@ jobs:
               curl -fsSL https://get.docker.com -o get-docker.sh
               sudo sh get-docker.sh
             else
-              echo "Docker is already installed."
+                echo "Docker is already installed."
             fi
             echo "Pulling latest Docker image from Docker Hub..."
             sudo docker pull baliqis/userapp:latest
