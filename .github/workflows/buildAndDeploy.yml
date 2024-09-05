@@ -56,23 +56,23 @@ jobs:
                 else
                   echo "Docker is already installed."
                 fi
-              echo "Pulling latest Docker image from Docker Hub..."
-              sudo docker pull baliqis/userapp:latest
+                echo "Pulling latest Docker image from Docker Hub..."
+                sudo docker pull baliqis/userapp:latest
             
-              if [ $(docker ps -q -f name=devop-container) ]; then
-                echo "Stopping existing container..."
-                sudo docker stop devop-container
-                sudo docker rm devop-container
+                if [ $(docker ps -q -f name=devop-container) ]; then
+                  echo "Stopping existing container..."
+                  sudo docker stop devop-container
+                  sudo docker rm devop-container
             
-              else
-                echo "No existing container found, creating a new one..."
-              fi
+                else
+                  echo "No existing container found, creating a new one..."
+                fi
             
-              echo "Running the new container..."
-              sudo docker run -d -p 8084:8084 --name devop-container baliqis/userapp:latest
-              echo "Container deployed successfully!"
+                echo "Running the new container..."
+                sudo docker run -d -p 8084:8084 --name devop-container baliqis/userapp:latest
+                echo "Container deployed successfully!"
         
-              echo "Listing running containers..."
-              sudo docker ps
+                echo "Listing running containers..."
+                sudo docker ps
 
 
